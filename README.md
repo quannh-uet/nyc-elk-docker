@@ -31,7 +31,7 @@ By default, the stack exposes the following ports:
 ## Analytics 2014 NYC taxi trips
 
 #### 1. Download data
-Download `nyc_taxi_data_2014.csv` data file from [2014 New York City Taxi Trips](https://www.kaggle.com/kentonnlp/2014-new-york-city-taxi-trips) then save to `data` folder
+Download `nyc_taxi_data_2014.csv` data file from [2014 New York City Taxi Trips](https://quannh-public-data.s3.ap-southeast-1.amazonaws.com/kaggle/nyc_taxi_data_2014.csv) then save to `data` folder
 
 
 #### 2. Build and start ELK Stack
@@ -59,7 +59,7 @@ It will be:
    * Time Filter field name: `@pickup_datetime`
 
 - Import saved objects:
-  * Go to [Management > Kibana > Saved objects](http://localhost:5601/app/kibana#/management/kibana/objects
+  * Go to [Management > Kibana > Saved objects](http://localhost:5601/app/kibana#/management/kibana/objects)
   * Click `Import` button, select `kibana/import-objects.ndjson` then click `Import`
   * Edit `Index Pattern Conflicts`:
     * In column `New index pattern`select `nyc_taxi_data_*` from dropdown menu.
@@ -80,6 +80,16 @@ You can also shutdown the stack and remove all persisted data by adding the `-v`
 ```console
 $ docker-compose down -v
 ```
+
+#### 6. Benchmarks index time
+Benchmarks index time in machine instance with SSD disk drive.
+
+|No|CPUs|Clock (GHz)|Memory (GB)|Index time (m)|
+|:-:|:-:|:-:|:-:|:-:|
+|1|4|1.6|8|128|
+|2|4|4.1|8|34|
+|3|8|4.1|16|13|
+|4|36|4.3|72|4|
 
 ## Configuration
 
