@@ -1,0 +1,19 @@
+{
+  "index_patterns": "nyc_taxi_*",
+  "settings": {
+    "number_of_shards": 2,
+    "number_of_replicas": 0
+  },
+  "order": 1,
+  "mappings": {
+    "properties": {
+      "pickup": {
+        "type": "geo_point"
+      },
+      "dropoff": {
+        "type": "geo_point"
+      }
+    }
+  },
+  "aliases": {}
+}
